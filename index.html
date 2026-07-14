@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CJ Deparine Pagas | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>CJ Deparine Pagas | Personal Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Variables */
+        /* Modern Tech Variables */
         :root {
-            --bg-main: #0a0a0a;
-            --bg-secondary: #141414;
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-            --accent: #ffd700; /* Gold/Yellow */
-            --accent-hover: #e6c200;
+            --bg-dark: #050505;
+            --bg-card: #0d0d0d;
+            --bg-nav: rgba(5, 5, 5, 0.85);
+            --accent: #ffb703; /* Electric Gold/Yellow */
+            --accent-glow: rgba(255, 183, 3, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8; /* Cool Grey */
+            --border-color: #1e293b;
+            --gradient-accent: linear-gradient(135deg, #ffb703 0%, #fb8500 100%);
         }
 
-        /* Reset */
+        /* Smooth Reset */
         * {
             margin: 0;
             padding: 0;
@@ -26,306 +29,466 @@
 
         html {
             scroll-behavior: smooth;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, .logo {
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
         }
 
-        a {
-            text-decoration: none;
-            color: var(--text-main);
-            transition: color 0.3s;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .highlight {
-            color: var(--accent);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .darker-bg {
-            background-color: var(--bg-secondary);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: var(--bg-main);
-            font-weight: 600;
-            text-transform: uppercase;
-            border-radius: 4px;
-            border: 2px solid var(--accent);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: var(--accent);
-        }
-
-        /* Header & Nav */
+        /* Glassmorphism Navigation */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(10, 10, 10, 0.95);
-            padding: 20px 50px;
+            background-color: var(--bg-nav);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 1.6rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
         .logo span {
-            color: var(--accent);
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 32px;
         }
 
         .nav-links a {
-            font-size: 1rem;
-            font-weight: 600;
-            text-transform: uppercase;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
+            gap: 5px;
         }
 
         .bar {
             width: 25px;
-            height: 3px;
-            background-color: var(--text-main);
-            margin: 3px 0;
-            transition: 0.3s;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: 0.3s ease;
         }
 
-        /* Hero Section */
+        /* Hero Section (Sci-Fi Dark Vibe) */
         #hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: radial-gradient(circle at center, #222 0%, var(--bg-main) 70%);
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, #111005 0%, var(--bg-dark) 80%);
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-badge {
+            background: rgba(255, 183, 3, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 24px;
         }
 
         .hero-content h1 {
-            font-size: 4.5rem;
-            margin-bottom: 10px;
-            line-height: 1.1;
+            font-size: 5rem;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
         }
 
-        .hero-content h2 {
-            font-size: 1.8rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            margin-bottom: 30px;
-            text-transform: none;
-            letter-spacing: 0;
+        .hero-content h1 span {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* About Section */
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 36px auto;
+        }
+
+        /* Super Cool Buttons */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 36px;
+            background: var(--gradient-accent);
+            color: var(--bg-dark);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(255, 183, 3, 0.25);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 183, 3, 0.4);
+        }
+
+        /* Global Section Styles */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 120px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            letter-spacing: -1.5px;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        section h2 span {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* About Section (Asymmetric Grid) */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 50px;
+            grid-template-columns: 1.2fr 1.8fr;
+            gap: 60px;
             align-items: center;
         }
 
         .about-profile {
             display: flex;
             justify-content: center;
-            align-items: center;
+            position: relative;
+        }
+
+        .profile-pic-frame {
+            position: relative;
+            border-radius: 24px;
+            padding: 8px;
+            background: linear-gradient(135deg, rgba(255, 183, 3, 0.3) 0%, rgba(255,255,255,0.03) 100%);
         }
 
         .profile-pic {
-            width: 300px;
-            height: 300px;
+            width: 320px;
+            height: 320px;
             object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--accent);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+            border-radius: 18px;
+            display: block;
+            filter: grayscale(10%);
+            transition: all 0.4s ease;
+        }
+
+        .profile-pic-frame:hover .profile-pic {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
         }
 
         .about-text p {
             font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
         }
 
-        .about-info-list {
-            margin-top: 20px;
+        /* Modern Grid Cards */
+        .details-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .info-item {
-            font-size: 1rem;
-        }
-
-        .info-item strong {
-            color: var(--accent);
-        }
-
-        /* Skills */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            justify-content: center;
         }
 
-        .skill-box {
-            background-color: var(--bg-main);
-            padding: 15px 30px;
-            border: 1px solid #333;
-            border-radius: 50px;
-            font-weight: 600;
-            color: var(--text-muted);
-            transition: all 0.3s;
+        .detail-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
         }
 
-        .skill-box:hover {
+        .detail-card:hover {
             border-color: var(--accent);
+            background: rgba(255, 183, 3, 0.02);
+            transform: translateY(-2px);
+        }
+
+        .detail-card h4 {
+            font-size: 0.85rem;
             color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .detail-card p {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        /* Skills (Clean Tech Tags) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px var(--accent-glow);
             transform: translateY(-5px);
         }
 
-        /* Achievements / Certificate Section */
-        .cert-container {
-            max-width: 800px;
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Achievements (Cyber Glow Certificate Box) */
+        .cert-glow-box {
+            max-width: 850px;
             margin: 0 auto;
-            background-color: var(--bg-secondary);
-            border: 1px solid #333;
-            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transition: all 0.4s ease;
         }
 
-        .cert-img-wrapper {
-            width: 100%;
-            border-bottom: 4px solid var(--accent);
+        .cert-glow-box:hover {
+            border-color: var(--accent);
+            box-shadow: 0 20px 50px rgba(255, 183, 3, 0.1);
         }
 
-        .cert-img-wrapper img {
+        .cert-image {
             width: 100%;
             height: auto;
-            display: block;
+            border-bottom: 2px solid var(--border-color);
+            transition: transform 0.5s ease;
         }
 
-        .cert-details {
-            padding: 30px;
-            text-align: center;
+        .cert-glow-box:hover .cert-image {
+            transform: scale(1.01);
         }
 
-        .cert-details h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .cert-details p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-        }
-
-        /* Contact Section */
-        .contact-details {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--bg-secondary);
-            border: 1px solid #333;
-            border-radius: 8px;
+        .cert-info {
             padding: 40px;
             text-align: center;
         }
 
-        .contact-info {
-            margin-bottom: 30px;
-        }
-
-        .contact-info p {
-            font-size: 1.2rem;
-            margin: 15px 0;
-            color: var(--text-muted);
-        }
-
-        .contact-info strong {
+        .cert-badge {
+            background: rgba(255, 183, 3, 0.1);
             color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .cert-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .cert-info p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .contact-link-row {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 183, 3, 0.05);
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+
+        .contact-card span {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .contact-card h4 {
+            font-size: 1.3rem;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px 0;
-            background-color: var(--bg-main);
-            border-top: 1px solid #222;
-            color: var(--text-muted);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
 
         /* Responsive Styles */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .about-profile {
+                order: -1;
+            }
+
+            .profile-pic {
+                width: 260px;
+                height: 260px;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            header {
+                padding: 16px 24px;
+            }
+
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px;
+                top: 75px;
                 left: 0;
                 width: 100%;
-                background-color: rgba(10, 10, 10, 0.98);
-                padding: 20px 0;
+                background-color: var(--bg-dark);
+                padding: 30px;
+                border-bottom: 1px solid var(--border-color);
                 text-align: center;
-                border-bottom: 1px solid #333;
+                gap: 24px;
             }
 
             .nav-links.active {
@@ -336,30 +499,28 @@
                 display: flex;
             }
 
-            .hero-content h1 {
-                font-size: 2.8rem;
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
             }
 
-            .hero-content h2 {
-                font-size: 1.3rem;
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
             }
 
-            .about-grid {
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            .details-grid {
                 grid-template-columns: 1fr;
-                text-align: center;
             }
 
-            .about-profile {
-                margin-bottom: 20px;
+            .cert-info {
+                padding: 24px;
             }
 
-            .profile-pic {
-                width: 220px;
-                height: 220px;
-            }
-
-            .about-info-list {
-                grid-template-columns: 1fr;
+            .cert-info h3 {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -367,7 +528,7 @@
 <body>
 
     <!-- Header Navigation -->
-    <header>
+    <header id="header">
         <div class="logo">CJ<span>PAGAS</span></div>
         <nav>
             <ul class="nav-links">
@@ -388,29 +549,44 @@
     <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
-            <h1>CJ Deparine <span class="highlight">Pagas</span></h1>
-            <h2>Creative Editor, Document Specialist & Student</h2>
-            <a href="#about" class="btn">Learn More About Me</a>
+            <span class="hero-badge">Available for Projects</span>
+            <h1>CJ Deparine <span>Pagas</span></h1>
+            <p>Specialize in Creative Layout Design, Professional Document Structuring, and Junior Cybersecurity Analysis.</p>
+            <a href="#about" class="btn">Explore Portfolio</a>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="darker-bg">
         <div class="container">
-            <h2>About <span class="highlight">Me</span></h2>
+            <h2>About <span>Me</span></h2>
             <div class="about-grid">
                 <div class="about-profile">
-                    <img src="img/profile.jpg" alt="CJ Pagas" class="profile-pic">
+                    <div class="profile-pic-frame">
+                        <img src="img/profile.jpg" alt="CJ Pagas" class="profile-pic">
+                    </div>
                 </div>
                 <div class="about-text">
-                    <p>Hello! I am CJ Deparine Pagas, a passionate 21-year-old 3rd-year college student. I specialize in creative editing, professional document creation, and digital design.</p>
-                    <p>I focus on combining structure and style to produce clean, well-formatted documents and eye-catching visual edits. I enjoy continuously expanding my tech skills, especially in cyber security, productivity, and layout design.</p>
+                    <h3>3rd Year BSIS Student & Designer</h3>
+                    <p>I am a 21-year-old Information Systems student who loves to bridge the gap between structured documentation and aesthetic layouts. I specialize in crafting ultra-clean reports, resumes, posters, and certificates while continuously expanding my knowledge in the tech field.</p>
                     
-                    <div class="about-info-list">
-                        <div class="info-item"><strong>Age:</strong> 21 Years Old</div>
-                        <div class="info-item"><strong>Education:</strong> 3rd Year College Student</div>
-                        <div class="info-item"><strong>Expertise:</strong> Document Layout & Editing</div>
-                        <div class="info-item"><strong>Location:</strong> Philippines</div>
+                    <div class="details-grid">
+                        <div class="detail-card">
+                            <h4>Educational Status</h4>
+                            <p>3rd Year BSIS Student</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Expertise</h4>
+                            <p>Document & Graphic Layout</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Age</h4>
+                            <p>21 Years Old</p>
+                        </div>
+                        <div class="detail-card">
+                            <h4>Location</h4>
+                            <p>Davao Region, PH</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -420,15 +596,24 @@
     <!-- Skills Section -->
     <section id="skills">
         <div class="container">
-            <h2>My <span class="highlight">Skills</span></h2>
-            <div class="skills-container">
-                <div class="skill-box">Creative Layout & Editing</div>
-                <div class="skill-box">Professional Document Creation</div>
-                <div class="skill-box">Formatting & Structure</div>
-                <div class="skill-box">Junior Cybersecurity Analysis</div>
-                <div class="skill-box">Graphic Design Elements</div>
-                <div class="skill-box">HTML5 & CSS3 Essentials</div>
-                <div class="skill-box">Resource Management</div>
+            <h2>My Core <span>Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Document Formatting</h3>
+                    <p>Creating highly professional corporate documents with neat layouts.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Creative Design</h3>
+                    <p>Visual content creation, graphics design, and certificate layouting.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Cybersecurity</h3>
+                    <p>Understanding basic networking and threat analysis (Cisco Acad).</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Information Systems</h3>
+                    <p>Structured database logic, resource planning, and tech solutions.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -436,15 +621,13 @@
     <!-- Achievements Section -->
     <section id="achievements" class="darker-bg">
         <div class="container">
-            <h2>Highlighted <span class="highlight">Achievement</span></h2>
-            <div class="cert-container">
-                <div class="cert-img-wrapper">
-                    <!-- KINI MAO ANG IMONG CISCO CERTIFICATE PIC -->
-                    <img src="img/certificate.png" alt="Cisco Certificate of Course Completion">
-                </div>
-                <div class="cert-details">
+            <h2>Verified <span>Achievements</span></h2>
+            <div class="cert-glow-box">
+                <img src="img/certificate.png" alt="Cisco Cybersecurity Certificate" class="cert-image">
+                <div class="cert-info">
+                    <span class="cert-badge">Cisco Certified</span>
                     <h3>Junior Cybersecurity Analyst</h3>
-                    <p><strong>Cisco Networking Academy</strong> | Completed May 12, 2026</p>
+                    <p>Successfully completed the official Junior Cybersecurity Analyst Career Path through Cisco Networking Academy.</p>
                 </div>
             </div>
         </div>
@@ -453,21 +636,29 @@
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
-            <h2>Get In <span class="highlight">Touch</span></h2>
-            <div class="contact-details">
-                <div class="contact-info">
-                    <p>Gusto ka makig-collaborate o magpahimo og limpyo nga document layout ug visual edit?</p>
-                    <p>📧 Email: <strong>cjpagas7@gmail.com</strong></p>
-                    <p>📞 Phone: <strong>09854583923</strong></p>
+            <h2>Let's <span>Connect</span></h2>
+            <div class="contact-box">
+                <p style="color: var(--text-secondary); margin-bottom: 24px;">Gusto ka makig-collaborate sa mga projects? Open ko para sa editing, document layout structuring, ug design gigs.</p>
+                
+                <div class="contact-link-row">
+                    <a href="mailto:cjpagas7@gmail.com" class="contact-card">
+                        <span>Send an Email</span>
+                        <h4>cjpagas7@gmail.com</h4>
+                    </a>
+                    <a href="tel:09854583923" class="contact-card">
+                        <span>Call/Text Me</span>
+                        <h4>09854583923</h4>
+                    </a>
                 </div>
-                <a href="mailto:cjpagas7@gmail.com" class="btn">Email Me Directly</a>
+                
+                <a href="mailto:cjpagas7@gmail.com" class="btn">Start a Conversation</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 CJ Deparine Pagas. All rights reserved.</p>
+        <p>&copy; 2026 CJ Deparine Pagas. Built with clean code.</p>
     </footer>
 
     <script>
@@ -476,15 +667,29 @@
         const navLinks = document.querySelector('.nav-links');
 
         menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when a link is clicked
+        // Close mobile menu when clicking links
         const links = document.querySelectorAll('.nav-links a');
         links.forEach(link => {
             link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
             });
+        });
+
+        // Dynamic Header Shadow on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.8)';
+                header.style.padding = '14px 40px';
+            } else {
+                header.style.boxShadow = 'none';
+                header.style.padding = '20px 40px';
+            }
         });
     </script>
 </body>
