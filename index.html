@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syncopate:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Cyber Tech Variables */
+        
         :root {
             --bg-black: #030303;
             --bg-darker: #080808;
@@ -23,7 +23,7 @@
             --font-display: 'Syncopate', sans-serif;
         }
 
-        /* Clean Reset */
+        
         * {
             margin: 0;
             padding: 0;
@@ -35,7 +35,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        /* Cyberpunk Grid Background */
+        
         body {
             background-color: var(--bg-black);
             background-image: 
@@ -48,7 +48,7 @@
             position: relative;
         }
 
-        /* Ambient Glow Blobs */
+        
         body::before {
             content: '';
             position: absolute;
@@ -73,7 +73,7 @@
             pointer-events: none;
         }
 
-        /* Sci-Fi Navigation */
+        
         header {
             position: fixed;
             top: 0;
@@ -136,7 +136,7 @@
             transition: 0.3s ease;
         }
 
-        /* Hero HUD Section */
+        
         #hero {
             height: 100vh;
             display: flex;
@@ -157,7 +157,7 @@
             box-shadow: inset 0 0 30px rgba(255, 183, 0, 0.05);
         }
 
-        /* Corner Brackets for HUD */
+        
         .hud-frame::before, .hud-frame::after {
             content: '';
             position: absolute;
@@ -220,7 +220,7 @@
             margin: 0 auto 36px auto;
         }
 
-        /* Glowing Cyber Button */
+        
         .cyber-btn {
             font-family: var(--font-tech);
             background: transparent;
@@ -244,7 +244,7 @@
             transform: translateY(-2px);
         }
 
-        /* Container & Sections */
+        
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -368,7 +368,7 @@
             margin: 0;
         }
 
-        /* Tech Skills Section */
+        
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -426,7 +426,7 @@
             color: var(--text-muted);
         }
 
-        /* Certificate Spotlight (Target Frame) */
+        
         .cert-hud-container {
             max-width: 850px;
             margin: 0 auto;
@@ -484,7 +484,7 @@
             font-size: 0.95rem;
         }
 
-        /* Interactive Cyber Terminal */
+        
         .terminal-container {
             max-width: 850px;
             margin: 60px auto 0 auto;
@@ -555,7 +555,7 @@
             color: #000;
         }
 
-        /* Footer */
+        
         footer {
             text-align: center;
             padding: 45px 0;
@@ -566,14 +566,14 @@
             background-color: var(--bg-darker);
         }
 
-        /* Animations */
+        
         @keyframes pulse {
             0% { opacity: 0.3; }
             50% { opacity: 1; }
             100% { opacity: 0.3; }
         }
 
-        /* Responsiveness */
+        
         @media (max-width: 900px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -637,7 +637,7 @@
 </head>
 <body>
 
-    <!-- Sci-Fi Top Header -->
+    
     <header id="header">
         <div class="logo">CJ_<span>PAGAS</span></div>
         <nav>
@@ -655,7 +655,7 @@
         </nav>
     </header>
 
-    <!-- Hero HUD Section -->
+    
     <section id="hero">
         <div class="hud-frame">
             <div class="hero-sys-status">
@@ -667,7 +667,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    
     <section id="about">
         <div class="container">
             <div class="section-header">
@@ -705,7 +705,7 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    
     <section id="skills">
         <div class="container">
             <div class="section-header">
@@ -737,7 +737,7 @@
         </div>
     </section>
 
-    <!-- Achievements Section -->
+    
     <section id="achievements">
         <div class="container">
             <div class="section-header">
@@ -754,7 +754,7 @@
                 </div>
             </div>
 
-            <!-- INTERACTIVE MATRIX TERMINAL -->
+            
             <div class="terminal-container">
                 <div class="terminal-bar">
                     <span class="term-dot red"></span>
@@ -778,13 +778,13 @@
         </div>
     </section>
 
-    <!-- Footer -->
+
     <footer>
         <p>// SYSTEM COMPILED IN 2026 BY CJ DEPARINE PAGAS // PROTOCOL SECURED</p>
     </footer>
 
     <script>
-        // Mobile menu toggle
+        
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
 
@@ -793,7 +793,7 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu on click
+        
         const links = document.querySelectorAll('.nav-links a');
         links.forEach(link => {
             link.addEventListener('click', () => {
@@ -806,7 +806,7 @@
             document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Mini Terminal Scripts
+        
         const output = document.getElementById('term-output');
 
         function appendLine(text, delay) {
@@ -833,7 +833,7 @@
             appendLine("> cyber_defense.dll: <strong>Active Watchdog Enabled</strong>", 1800);
         }
 
-        // Decryption Contact Script with FB Account
+        
         function scanContacts() {
             appendLine("> initiating contact node scan...", 0);
             appendLine("> decryp_comms_port_80.sh: processing...", 300);
